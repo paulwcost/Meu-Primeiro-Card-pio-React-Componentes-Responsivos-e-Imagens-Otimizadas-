@@ -1,17 +1,16 @@
 import React from "react";
 import "./menuItem.css";
 
-function MenuItem({ name, description, price, imageUrl }) {
+function menuItem({ name, description, price, imageUrl, onAdd }) {
   return (
-    <article className="menu-item">
-      <img src={imageUrl} alt={`Prato: ${name}`} className="menu-item__image" />
-      <div className="menu-item__info">
-        <h2 className="menu-item__name">{name}</h2>
-        <p className="menu-item__description">{description}</p>
-        <p className="menu-item__price">{price}</p>
-      </div>
-    </article>
+    <div className="menu-item">
+      <img src={imageUrl} alt={name} style={{ width: "100%", borderRadius: "12px" }} />
+      <h3>{name}</h3>
+      <p>{description}</p>
+      <p><strong>{price}</strong></p>
+      <button onClick={onAdd}>Adicionar ao Carrinho</button>
+    </div>
   );
 }
 
-export default MenuItem;
+export default menuItem;
